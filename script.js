@@ -307,7 +307,8 @@ function createStatesCartoURI() {
   INNER JOIN ${cartoSheetSyncTable} m
   ON s.name = m.state
   AND s.sr_adm0_a3 = m.iso
-  AND m.admin_scale = 'State'
+  AND m.admin_scale = 'State' 
+  OR m.admin_scale = 'Federal District'
   ORDER BY m.range`;
 
   return `https://ampitup.carto.com/api/v2/sql?q=${query}&format=geojson`;
